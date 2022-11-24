@@ -7,10 +7,19 @@ const app = express();
 
 app.use(express.json());
 
+const chickenHandlers = require("./chickenHandlers");
+
 const home = (req, res) => {
     res.send('Welcome to the chicken coop')
 }
 
 app.get('/', home);
+app.get('/chickens', chickenHandlers.getChickens);
 
-app.listen(serverPort, () => console.log('Server is listening on port', serverPort));
+app.listen(serverPort, (err) => {
+    if (err) {
+      console.error('Something bad happened');
+    } else {
+      console.log(`Server is listening on ${serverPort}`);
+    }
+  });

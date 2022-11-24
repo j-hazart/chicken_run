@@ -10,7 +10,7 @@ CREATE TABLE chickens (
     birthday DATE,
     weight INT NOT NULL,
     steps INT DEFAULT 0,
-    isRunning BOOLEAN DEFAULT 0
+    isRunning BOOLEAN DEFAULT false
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb3;
 
 INSERT INTO
@@ -18,11 +18,11 @@ INSERT INTO
 VALUES
     (
         'Cocotte',
-        '2020-11-01',
+        DATE('2013-02-28'),
         1.5
     ),
     (
         'Poulette',
-        '2021-05-13',
+        DATE('2014-10-02'),
         1.8
     );
