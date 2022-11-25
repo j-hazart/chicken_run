@@ -45,7 +45,7 @@ const getChickenByName = (req, res) => {
 
   const delChicken = (req, res) => {
     const {name} = req.params;
-    console.log(req.params);
+
     database
       .query("DELETE FROM chickens WHERE name = ?", [name])
       .then(([result]) => {
@@ -61,9 +61,28 @@ const getChickenByName = (req, res) => {
       });
   };
 
+  const editChicken = (req, res) => {
+    const {name} = req.params;
+
+    database
+      .query("UPDATE chickens SET ? WHERE name = ?", [req.body, name])
+      .then(([result]) => {
+        if (result.affectedRows) {
+            res.sendStatus(204);
+        } else {
+            res.sendStatus(404);
+        }
+      })
+      .catch((err) => {
+        console.error(err);
+        res.status(500).send("Error editing the chicken");
+      });
+  };
+
   module.exports = {
     getChickens,
     getChickenByName,
     addChicken,
-    delChicken
+    delChicken,
+    editChicken
 };
