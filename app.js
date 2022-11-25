@@ -9,6 +9,12 @@ app.use(express.json());
 
 const chickenHandlers = require("./chickenHandlers");
 
+/**
+ * The function home takes in a request and a response, and sends the response 'Welcome to the chicken
+ * coop'
+ * @param req - the request object
+ * @param res - the response object
+ */
 const home = (req, res) => {
     res.send('Welcome to the chicken coop')
 }

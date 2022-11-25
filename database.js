@@ -1,3 +1,4 @@
+/* This is creating a connection to the database. */
 require("dotenv").config();
 
 const mysql = require("mysql2/promise");
