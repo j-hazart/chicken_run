@@ -17,7 +17,11 @@ app.get('/', home);
 app.get('/chickens', chickenHandlers.getChickens);
 app.get('/chickens/:name', chickenHandlers.getChickenByName);
 
-app.post('/chickens', chickenHandlers.postChicken)
+app.post('/chickens', chickenHandlers.addChicken)
+
+app.put('/chickens/:name', chickenHandlers.editChicken)
+
+app.delete('/chickens/:name', chickenHandlers.delChicken);
 
 app.listen(serverPort, (err) => {
     if (err) {

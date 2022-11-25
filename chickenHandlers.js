@@ -30,7 +30,7 @@ const getChickenByName = (req, res) => {
       });
   };
   
-  const postChicken = (req, res) => {
+  const addChicken = (req, res) => {
     const {name, birthday, weight} = req.body;
     database
       .query("INSERT INTO chickens(name, birthday, weight) VALUES (?, DATE(?), ?)", [name, birthday, weight])
@@ -43,8 +43,27 @@ const getChickenByName = (req, res) => {
       });
   };
 
+  const delChicken = (req, res) => {
+    const {name} = req.params;
+    console.log(req.params);
+    database
+      .query("DELETE FROM chickens WHERE name = ?", [name])
+      .then(([result]) => {
+        if (result.affectedRows) {
+            res.sendStatus(204);
+        } else {
+            res.sendStatus(404);
+        }
+      })
+      .catch((err) => {
+        console.error(err);
+        res.status(500).send("Error deleting the chicken");
+      });
+  };
+
   module.exports = {
     getChickens,
     getChickenByName,
-    postChicken
+    addChicken,
+    delChicken
 };
