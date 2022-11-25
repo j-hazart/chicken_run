@@ -43,7 +43,7 @@ http://localhost/chickens/cocotte
 body:
 {
 "name":"cocotte",
-"birthday":"2022-05-23"
+"birthday":"2022-05-23",
 "weight": 2
 }
 
