@@ -15,6 +15,9 @@ const home = (req, res) => {
 
 app.get('/', home);
 app.get('/chickens', chickenHandlers.getChickens);
+app.get('/chickens/:name', chickenHandlers.getChickenByName);
+
+app.post('/chickens', chickenHandlers.postChicken)
 
 app.listen(serverPort, (err) => {
     if (err) {
