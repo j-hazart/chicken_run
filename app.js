@@ -17,9 +17,11 @@ app.get('/', home);
 app.get('/chickens', chickenHandlers.getChickens);
 app.get('/chickens/:name', chickenHandlers.getChickenByName);
 
-app.post('/chickens', chickenHandlers.addChicken)
+app.post('/chickens', chickenHandlers.addChicken);
 
-app.put('/chickens/:name', chickenHandlers.editChicken)
+app.put('/chickens/:name', chickenHandlers.editChicken);
+
+app.patch('/chickens/run', chickenHandlers.addChickenStep)
 
 app.delete('/chickens/:name', chickenHandlers.delChicken);
 

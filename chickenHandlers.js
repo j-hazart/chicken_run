@@ -29,9 +29,13 @@ const getChickenByName = (req, res) => {
         res.sendStatus(500);
       });
   };
-  
-  const addChicken = (req, res) => {
-    const {name, birthday, weight} = req.body;
+
+  const addChicken = (req, res) => {  
+    const date = new Date(Date.now());
+    const birthday = `${date.getFullYear()}-${date.getMonth()}-${date.getDate()}`;
+    
+    const {name, weight} = req.body;
+    
     database
       .query("INSERT INTO chickens(name, birthday, weight) VALUES (?, DATE(?), ?)", [name, birthday, weight])
       .then(([result]) => {
@@ -79,10 +83,27 @@ const getChickenByName = (req, res) => {
       });
   };
 
+  const addChickenStep = (req, res) => {
+    database
+      .query("UPDATE chickens SET steps = steps + 1")
+      .then(([result]) => {
+        if (result.affectedRows) {
+            res.sendStatus(204);
+        } else {
+            res.sendStatus(404);
+        }
+      })
+      .catch((err) => {
+        console.error(err);
+        res.status(500).send("Error to make walking chickens");
+      });
+  };
+
   module.exports = {
     getChickens,
     getChickenByName,
     addChicken,
     delChicken,
-    editChicken
+    editChicken,
+    addChickenStep
 };
