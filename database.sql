@@ -26,3 +26,36 @@ VALUES
         DATE('2014-10-02'),
         1.8
     );
+
+DROP TABLE IF EXISTS stock;
+
+CREATE TABLE stock (
+    id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    item VARCHAR(255) NOT NULL,
+    quantity INT DEFAULT 0,
+    chicken_id INT NOT NULL
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb3;
+
+INSERT INTO
+    chickens (item, quantity, chicken_id)
+VALUES
+    (
+        'egg',
+        3,
+        1
+    ),
+    (
+        'egg',
+        5,
+        2
+    )
+    (
+        'leather',
+        6,
+        1
+    ),
+    (
+        'leather',
+        12,
+        2
+    );
