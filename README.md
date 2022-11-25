@@ -2,17 +2,17 @@
 
 A webservice to manage a chicken_coop.
 
-### Available Commands
+# Available Commands
 
 `setup`: install the dependencies we need
 `start`: run the server
 `dev`: run the server in dev mode
 
-### Import the database
+# Import the database
 
 In mysql `source database.js`
 
-### Requests [GET]
+# Requests [GET]
 
 **Get all chickens :**
 http://localhost/chickens
@@ -24,7 +24,7 @@ http://localhost/chickens/cocotte
 http://localhost/stock
 http://localhost/stock?name=cocotte&item=egg
 
-### Requests [POST]
+# Requests [POST]
 
 **Add a chicken :**
 http://localhost/chickens
@@ -35,7 +35,7 @@ body:
 "weight": 2
 }
 
-### Requests [PUT]
+# Requests [PUT]
 
 **Edit a chicken by name:**
 http://localhost/chickens/cocotte
@@ -47,12 +47,12 @@ body:
 "weight": 2
 }
 
-### Requests [PATCH]
+# Requests [PATCH]
 
 **Make all chickens run :**
 http://localhost/chickens/run
 
-### Requests [DELETE]
+# Requests [DELETE]
 
 **Delete a chicken by name :**
 http://localhost/chickens/cocotte
